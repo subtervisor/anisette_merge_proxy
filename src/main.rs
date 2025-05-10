@@ -56,8 +56,8 @@ struct ServerCache {
 }
 
 fn merge_servers(upstream_servers: &Servers, my_servers: &Servers) -> (Servers, String) {
-    let mut merged_servers = upstream_servers.servers.clone();
-    merged_servers.append(&mut my_servers.servers.clone());
+    let mut merged_servers = my_servers.servers.clone();
+    merged_servers.append(&mut upstream_servers.servers.clone());
     let servers = Servers {
         servers: merged_servers,
         cache: None,
